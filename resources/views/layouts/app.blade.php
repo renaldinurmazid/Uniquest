@@ -136,36 +136,127 @@
                 <div class="flex-1 space-y-8 px-6">
                     <nav class="space-y-1">
                         <div class="px-2 mb-2">
-                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Main Hub</p>
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Main Hub</p>
                         </div>
                         <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'bg-primary/10 text-primary shadow-xs' : 'text-slate-500 hover:bg-slate-50 hover:text-primary' }} group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 {{ request()->routeIs('dashboard') ? 'bg-primary text-white shadow-lg shadow-primary/30' : 'bg-slate-100 text-slate-400' }} group-hover:scale-110 transition-transform">
-                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                 </svg>
                             </div>
                             Dashboard
                         </a>
                         <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
-                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                                 </svg>
                             </div>
-                            Quests
+                            Quest Management
                         </a>
-                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300 border-l-4 border-transparent">
+                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
-                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                                 </svg>
                             </div>
                             Leaderboard
                         </a>
+                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                            <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                                </svg>
+                            </div>
+                            Campus Insight
+                        </a>
                     </nav>
 
                     <nav class="space-y-1">
+                        <div class="px-2 mb-2">
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Player & Guilds</p>
+                        </div>
+                        <a href="{{ route('students') }}" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                                </svg>
+                            </div>
+                            Students
+                        </a>
+                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                            </div>
+                            Organizations
+                        </a>
+                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                            </div>
+                            Skills Master
+                        </a>
+                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.54 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.784.57-1.838-.196-1.539-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                                </svg>
+                            </div>
+                            Achievements
+                        </a>
+                    </nav>
+
+                    <nav class="space-y-1">
+                        <div class="px-2 mb-2">
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Economy & Vault</p>
+                        </div>
+                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                                </svg>
+                            </div>
+                            Point Shop
+                        </a>
+                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A3.323 3.323 0 0010.65 15c-1.838 0-3.33 1.492-3.33 3.331V21h10.681v-2.669c0-1.838-1.492-3.331-3.33-3.331a3.323 3.323 0 00-4.07 2.669m-.333-8.669c0-1.838 1.492-3.331 3.33-3.331a3.323 3.323 0 013.331 3.331c0 1.838-1.492 3.331-3.331 3.331a3.323 3.323 0 01-3.33-3.331z" />
+                                </svg>
+                            </div>
+                            Verification Center
+                        </a>
+                    </nav>
+
+                    <nav class="space-y-1">
+                        <div class="px-2 mb-2">
+                            <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">System Admin</p>
+                        </div>
+                        <a href="{{ route('users') }}" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            Users
+                        </a>
+                        <a href="#" class="text-slate-500 hover:bg-slate-50 hover:text-primary group flex items-center px-4 py-3.5 text-sm font-bold rounded-2xl transition-all duration-300">
+                             <div class="w-8 h-8 rounded-lg flex items-center justify-center mr-3 bg-slate-100 text-slate-400 group-hover:bg-primary group-hover:text-white transition-all">
+                                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                                </svg>
+                            </div>
+                            Roles & Access
+                        </a>
+                    </nav>
+
+                    {{-- <nav class="space-y-1">
                         <div class="px-2 mb-2">
                             <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Growth</p>
                         </div>
@@ -186,7 +277,7 @@
                             </div>
                             Settings
                         </a>
-                    </nav>
+                    </nav> --}}
                 </div>
 
                 <div class="mt-auto p-6 border-t border-slate-50">
@@ -196,7 +287,7 @@
                             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="User" class="w-12 h-12 rounded-2xl border-2 border-white shadow-md">
                             <div class="flex-1 min-w-0">
                                 <p class="text-sm font-bold text-slate-800 truncate">{{ auth()->user()->name ?? 'Super Admin' }}</p>
-                                <p class="text-[10px] text-primary font-bold uppercase tracking-wider">Level 42 Hero</p>
+                                {{-- <p class="text-[10px] text-primary font-bold uppercase tracking-wider">Level 42 Hero</p> --}}
                             </div>
                         </div>
                         <form method="POST" action="{{ route('logout') }}">
