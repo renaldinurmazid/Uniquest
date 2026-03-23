@@ -7,11 +7,13 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles, HasApiTokens;
 
     /**
      * The attributes that are mass assignable.
@@ -86,25 +88,31 @@ class User extends Authenticatable
     {
         return $this->hasMany(ExternalCertificate::class);
     }
+    
+    protected $appends = [
+        'rank_info',
+    ];
 
-    public function roles()
+    public function getRankInfoAttribute()
     {
-        return $this->belongsToMany(Role::class);
+        $profile = $this->studentProfile;
+        if (!$profile) return null;
+
+        $rank = StudentProfile::query()
+            ->where('level', '>', $profile->level)
+            ->orWhere(function($q) use ($profile) {
+                $q->where('level', $profile->level)
+                  ->where('current_exp', '>', $profile->current_exp);
+            })->count() + 1;
+
+        return [
+            'current_rank' => $rank,
+            'total_students' => StudentProfile::count()
+        ];
     }
 
-    public function assignRole(string $role)
+    public function getAvatarUrlAttribute($value)
     {
-        return $this->roles()->syncWithoutDetaching(
-            Role::whereName($role)->firstOrFail()
-        );
-    }
-
-    public function hasRole($role)
-    {
-        if (is_string($role)) {
-            return $this->roles->contains('name', $role);
-        }
-
-        return !!$role->intersect($this->roles)->count();
+        return $value ? asset('storage/' . $value) : "https://api.dicebear.com/7.x/bottts/svg?seed=$this->email&backgroundColor=f8fafc";
     }
 }

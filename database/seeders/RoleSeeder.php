@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Role;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class RoleSeeder extends Seeder
 {
@@ -13,12 +13,12 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $roles = ['superadmin','admin','student'];
+        $roles = ['superadmin', 'admin', 'staff', 'student'];
 
         foreach ($roles as $role) {
-            Role::create([
+            Role::firstOrCreate([
                 'name' => $role,
-                'label' => ucfirst($role),
+                'guard_name' => 'web',
             ]);
         }
     }

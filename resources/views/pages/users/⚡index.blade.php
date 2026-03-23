@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\User;
-use App\Models\Role;
+use Spatie\Permission\Models\Role;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Layout;
@@ -28,10 +28,13 @@ new #[Layout('layouts::app')] #[Title('System Users')] class extends Component {
 
     public function getUsers()
     {
-        // System users are typically not 'user' (students)
-        return User::whereHas('roles', fn($q) => $q->whereIn('name', ['admin', 'superadmin', 'staff']))
+        // System users are admins, superadmins, or staff
+        return User::role(['admin', 'superadmin', 'staff', 'student'])
             ->with('roles')
-            ->where('name', 'like', '%' . $this->search . '%')
+            ->where(function($query) {
+                $query->where('name', 'like', '%' . $this->search . '%')
+                      ->orWhere('email', 'like', '%' . $this->search . '%');
+            })
             ->latest()
             ->paginate(15);
     }
@@ -49,7 +52,7 @@ new #[Layout('layouts::app')] #[Title('System Users')] class extends Component {
 
             $role = Role::find($this->role_id);
             if ($role) {
-                $user->assignRole($role->name);
+                $user->assignRole($role);
             }
 
             $this->reset(['name', 'email', 'role_id', 'password']);
@@ -63,8 +66,19 @@ new #[Layout('layouts::app')] #[Title('System Users')] class extends Component {
 
 <div x-data="{ showModal: false }" @close-modal.window="showModal = false" class="space-y-8">
     @if(session('error'))
-        <div class="p-4 bg-red-50 text-red-600 rounded-2xl border border-red-100 font-bold mb-4">
+        <div class="p-4 bg-red-50 text-red-600 rounded-2xl border border-red-100 font-bold mb-4 flex items-center gap-3">
+             <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
             {{ session('error') }}
+        </div>
+    @endif
+    @if(session('status'))
+        <div class="p-4 bg-emerald-50 text-emerald-600 rounded-2xl border border-emerald-100 font-bold mb-4 flex items-center gap-3">
+            <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            {{ session('status') }}
         </div>
     @endif
     <div class="flex sm:row justify-between items-start sm:items-center gap-4">
