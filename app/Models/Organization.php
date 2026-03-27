@@ -6,11 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Organization extends Model
 {
-    protected $fillable = ['name', 'description', 'logo_path', 'user_id'];
+    protected $fillable = [
+        'name',
+        'description',
+        'logo_path',
+        'user_id',
+    ];
 
-    public function user()
+    public function owner()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function events()

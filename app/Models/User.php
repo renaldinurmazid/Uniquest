@@ -73,15 +73,15 @@ class User extends Authenticatable
     public function achievements()
     {
         return $this->belongsToMany(Achievement::class, 'student_achievements')
-                    ->withPivot('earned_at')
-                    ->withTimestamps();
+            ->withPivot('earned_at')
+            ->withTimestamps();
     }
 
     public function skills()
     {
         return $this->belongsToMany(Skill::class, 'student_skills')
-                    ->withPivot('points')
-                    ->withTimestamps();
+            ->withPivot('points')
+            ->withTimestamps();
     }
 
     public function externalCertificates()
